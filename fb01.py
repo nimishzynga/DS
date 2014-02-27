@@ -18,18 +18,16 @@ def detect(inp):
                 startx=i
                 starty=j
                 while j<len(inp[i]) and check(inp, i, j):
+                    endx = j
+                    if j == len(inp[i])-1:
+                        break
                     j=j+1
-                if j == len(inp[i]):
-                    j=j-1
-                endx=j
                 First = False
-                print startx,starty,endx
             if look(inp, startx, starty, endx, i, j) == False:
-                print i,j
                 return "NO"
     if First:
         return "NO"
     return "YES"
 
-f=[[1,2,2,2,1],[1,2,2,2,1],[1,2,2,2,1]]
+f=[[1,2,2,1,1],[1,2,2,2,1],[1,2,2,2,1]]
 print detect(f)
